@@ -9,9 +9,6 @@ public class TestController {
 
   @PostMapping("/test")
   public String test(@RequestBody String request){
-
-    System.out.println(request);
-
     return request;
   }
 
