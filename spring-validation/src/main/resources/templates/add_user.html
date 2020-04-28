@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Validation Example</title>
+
+  <style>
+    .warning{
+      width:30px;
+      height:25px;
+    }
+  </style>
+
+</head>
+<body>
+
+<h2>회원가입 폼</h2>
+
+<form th:action="@{/user}" th:object="${user}" method="POST">
+
+  <span>이름</span>
+  <input type="text" th:field="*{name}" th:class="${#fields.hasErrors('name')} ? 'error'" />
+  <div th:each="msg : ${#fields.errors('name')}">
+    <p th:text="${msg}"></p>
+  </div>
+  <br/>
+
+  <span>이메일</span>
+  <input type="text" th:field="*{email}" th:class="${#fields.hasErrors('email')} ? 'error'" />
+  <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+  <br/>
+
+  <span>비밀번호</span>
+  <input type="password" th:field="*{password}" th:class="${#fields.hasErrors('password')} ? 'error'" />
+  <img th:class="warning" th:if="${#fields.hasErrors('password')}" th:src="@{/warning.jpg}"  th:errors="*{password}"></span>
+  <br/>
+
+  <input type="submit" value="제출" />
+</form>
+
+</body>
+</html>
