@@ -1,0 +1,38 @@
+<idea-plugin>
+    <id>me.shinsunyoung.parrot_popup</id>
+    <name>Parrot PopUp</name>
+    <vendor email="ajufresh@gmail.com" url="https://shinsunyoung.tistory.com/">fresh</vendor>
+
+    <description><![CDATA[
+    <h1> 여기에 설명을 적으면 됩니다! </h1>
+    <p> html 태그를 이용합니다. </p>
+    ]]></description>
+
+    <change-notes><![CDATA[
+      여기에는 변경된 내용을 적는 곳입니다.
+      New project initiate.
+    ]]>
+    </change-notes>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+
+    </extensions>
+
+    <actions>
+        <group id="top" text="_My Top Menu">
+            <add-to-group group-id="MainMenu" anchor="last"  />
+            <action id="sub" class="action.TopMenu" text="Top Sub Menu" />
+        </group>
+
+        <action id="myEdit" class="action.MyEdit" text="myEdit">
+            <add-to-group group-id="EditMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="shift meta QUOTE"/>
+        </action>
+
+        <action id="myForm" class="action.MyForm">
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl shift Z"/>
+        </action>
+    </actions>
+</idea-plugin>
