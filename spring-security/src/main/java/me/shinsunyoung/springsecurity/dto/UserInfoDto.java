@@ -15,7 +15,7 @@ public class UserInfoDto {
   private String email;
   private String password;
 
-  private int level;
+  private String auth;
 
   public UserInfoDto() {
   }
@@ -24,7 +24,7 @@ public class UserInfoDto {
     this.code = userInfo.getCode();
     this.email = userInfo.getEmail();
     this.password = userInfo.getPassword();
-    this.level = userInfo.getLevel();
+    this.auth = userInfo.getAuth();
   }
 
 }

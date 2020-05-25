@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
-<head>
-  <meta charset="UTF-8">
-  <title>admin</title>
-</head>
-<body>
-<h2>관리자 전용 페이지</h2>
-<p sec:authentication="name"></p>
-<p sec:authentication="authorities"></p>
-
-
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <title>admin</title>
+  </head>
+  <body>
+    <h2>관리자 전용 페이지</h2>
+    ID : <span :authentication="name"></span>
+    소유 권한 : <span sec:authentication="authorities"></span>
+  </body>
 </html>
