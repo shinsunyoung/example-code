@@ -27,7 +27,7 @@ public class UserInfo implements UserDetails {
   @GeneratedValue(strategy= GenerationType.IDENTITY)
   private Long code;
 
-  @Column(name = "email")
+  @Column(name = "email", unique = true)
   private String email;
 
   @Column(name = "password")

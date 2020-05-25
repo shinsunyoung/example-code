@@ -44,13 +44,12 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
             .failureUrl("/login?error") // 로그인 실패할 경우 리다이렉트 주소
         .and()
           .logout() // 로그아웃
+            .permitAll()
             .logoutSuccessUrl("/login") // 로그아웃 성공시 리다이렉트 주소
             .clearAuthentication(true) // 권한 삭제
             .invalidateHttpSession(true) // 세션 정보 삭제
             .deleteCookies("JSESSIONID") // 세션 ID 쿠키 삭제
     ;
-
-
   }
 
   @Override
