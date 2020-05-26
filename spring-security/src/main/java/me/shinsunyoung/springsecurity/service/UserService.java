@@ -1,6 +1,5 @@
 package me.shinsunyoung.springsecurity.service;
 
-import java.util.List;
 import lombok.RequiredArgsConstructor;
 import me.shinsunyoung.springsecurity.domain.UserInfo;
 import me.shinsunyoung.springsecurity.dto.UserInfoDto;
@@ -9,7 +8,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
