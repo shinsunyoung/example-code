@@ -23,7 +23,6 @@ public class UserService implements UserDetailsService {
    * @param infoDto 회원정보가 들어있는 DTO
    * @return 저장되는 회원의 PK
    */
-  @Transactional
   public Long save(UserInfoDto infoDto) {
     BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
     infoDto.setPassword(encoder.encode(infoDto.getPassword()));
