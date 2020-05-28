@@ -15,6 +15,10 @@
       <button type="submit">Login</button>
     </form> <br>
 
+    <div th:if="${param.error} and ${session}">
+      <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
+    </div>
+
     <a href="/signup">Go to join! →</a>
   </body>
 </html>
