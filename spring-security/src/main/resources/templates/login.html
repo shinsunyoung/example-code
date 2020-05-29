@@ -15,7 +15,7 @@
       <button type="submit">Login</button>
     </form> <br>
 
-    <div th:if="${SPRING_SECURITY_LAST_EXCEPTION} != null">
+    <div th:if="${session['SPRING_SECURITY_LAST_EXCEPTION']} != null">
       <span th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></span>
     </div>
 
