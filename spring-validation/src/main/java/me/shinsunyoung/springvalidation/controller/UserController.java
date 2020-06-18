@@ -34,5 +34,4 @@ public class UserController {
         .name("선영")
         .build();
   }
-
 }

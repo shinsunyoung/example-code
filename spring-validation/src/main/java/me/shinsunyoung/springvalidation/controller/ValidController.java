@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class ValidController {
-
   @PostMapping("/valid")
   public Obj valid(@RequestBody @Valid Obj object){
     return object;
