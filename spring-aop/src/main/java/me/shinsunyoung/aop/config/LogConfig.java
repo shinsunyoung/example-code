@@ -18,7 +18,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Aspect
 public class LogConfig {
 
-  @Around("within(me.shinsunyoung.aop.controller..*))") //
+  @Around("within(me.shinsunyoung.aop.controller..*) && !@annotation(me.shinsunyoung.aop.config.LogExclusion)") //
   public Object logging(ProceedingJoinPoint pjp) throws Throwable { // 2
 
     String params = getRequestParams(); // request 값 가져오기
