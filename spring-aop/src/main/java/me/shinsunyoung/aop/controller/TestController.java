@@ -15,14 +15,14 @@ public class TestController {
   }
 
   @GetMapping("/test1")
-  public String test1(){
-    return "TEST1";
+  public void test1(){
+    System.out.println("TEST1");
   }
 
   @LogExclusion // 로깅 제외
   @GetMapping("/test2")
-  public String test2(){
-    return "TEST2";
+  public void test2(){
+    System.out.println("TEST2");
   }
 
 }
