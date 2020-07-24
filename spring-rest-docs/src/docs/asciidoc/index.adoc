@@ -1,0 +1,16 @@
+== 인사하기
+
+=== Request
+
+CURL:
+include::{snippets}/hello/curl-request.adoc[]
+
+Request Parameters:
+include::{snippets}/hello/http-request.adoc[]
+
+Request HTTP Example:
+include::{snippets}/hello/http-request.adoc[]
+
+=== Response
+Response:
+include::{snippets}/hello/http-response.adoc[]
