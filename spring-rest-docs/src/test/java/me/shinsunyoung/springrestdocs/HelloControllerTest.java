@@ -1,10 +1,8 @@
 package me.shinsunyoung.springrestdocs;
 
-import static org.junit.Assert.*;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.document;
 import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.documentationConfiguration;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -23,7 +21,7 @@ import org.springframework.web.context.WebApplicationContext;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class TestControllerTest {
+public class HelloControllerTest {
 
   @Rule
   public JUnitRestDocumentation restDocumentation = new JUnitRestDocumentation();
@@ -55,6 +53,5 @@ public class TestControllerTest {
         .andExpect(jsonPath("$.name").value(name))
         .andDo(document("hello"));
   }
-
 
 }
