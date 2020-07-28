@@ -8,9 +8,8 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFRow;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.tika.Tika;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -31,11 +30,13 @@ public class ExcelController {
   public String readExcel(@RequestParam("file") MultipartFile file, Model model)
       throws IOException {
 
-    List<ExcelData> dataList = new ArrayList<>();
+    Tika tika = new Tika(); // Apache Tika 사용
+    String detect = tika.detect(file.getBytes()); // Tika를 사용해서 MIME 타입 얻어내기
 
+    List<ExcelData> dataList = new ArrayList<>();
     String extension = FilenameUtils.getExtension(file.getOriginalFilename());
 
-    if (!extension.equals("xlsx") && !extension.equals("xls")) {
+    if (!isExcel(detect, extension)) {
       throw new IOException("엑셀파일만 업로드 해주세요.");
     }
 
@@ -66,5 +67,15 @@ public class ExcelController {
 
     return "excelList";
 
+  }
+
+  private boolean isExcel(String mime, String extension) {
+    if (!mime.equals("application/x-tika-ooxml")) { // Microsoft Office 파일의 MIME은 application/x-tika-ooxml
+        return false;
+    } else if (!extension.equals("xlsx") && !extension.equals("xls")) { // 확장자가 xls 또는 xlsx가 아니라면 false 리턴
+      return false;
+    }
+
+    return true;
   }
 }

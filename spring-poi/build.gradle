@@ -26,6 +26,7 @@ dependencies {
 
     compile group: 'org.apache.poi', name: 'poi', version: '3.11'
     compile group: 'org.apache.poi', name: 'poi-ooxml', version: '3.11'
+	compile group: 'org.apache.tika', name: 'tika-core', version: '1.22' // apache tika
 
     compile group: 'commons-io', name: 'commons-io', version: '2.4'
 
