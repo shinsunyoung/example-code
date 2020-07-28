@@ -83,4 +83,14 @@ public class ExcelController {
 
     return "excelList";
   }
+
+  private boolean isExcel(String mime, String extension) {
+    if (!mime.equals("application/x-tika-ooxml")) { // Microsoft Office 파일의 MIME은 application/x-tika-ooxml
+        return false;
+    } else if (!extension.equals("xlsx") && !extension.equals("xls")) { // 확장자가 xls 또는 xlsx가 아니라면 false 리턴
+      return false;
+    }
+
+    return true;
+  }
 }
