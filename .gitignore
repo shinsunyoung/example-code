@@ -1,2 +1,7 @@
 .idea
 **/bin/
+
+**/settings.gradle
+**/gradlew.bat
+**/gradlew
+**/gradle
