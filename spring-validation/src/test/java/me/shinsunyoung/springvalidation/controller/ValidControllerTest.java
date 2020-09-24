@@ -52,4 +52,32 @@ public class ValidControllerTest {
         .andDo(print());
   }
 
+
+  @Test
+  public void 핸드폰번호_validation_성공() throws Exception {
+    String content = objectMapper.writeValueAsString(new Obj("냠냠이", 10, "01012345678"));
+
+    mockMvc.perform(post("/valid")
+        .content(content)
+        .contentType(MediaType.APPLICATION_JSON)
+        .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().isOk())
+        .andDo(print());
+  }
+
+
+  @Test
+  public void 핸드폰번호_validation_실패() throws Exception {
+    String content = objectMapper.writeValueAsString(new Obj("냠냠이", 10, "123456789123"));
+
+    mockMvc.perform(post("/valid")
+        .content(content)
+        .contentType(MediaType.APPLICATION_JSON)
+        .accept(MediaType.APPLICATION_JSON))
+        .andExpect(status().is4xxClientError())
+        .andExpect(jsonPath("$.message").value("유효성 검사 실패 : 휴대폰 번호"))
+        .andDo(print());
+  }
+
+
 }
