@@ -21,7 +21,10 @@ public class PositiveTest {
 //  @Parameters(method = "parametersForPositive")
   @Parameters
   public void positive(int number, boolean isPositive) {
+    // given, when
     Positive positive = new Positive(number);
+
+    // then
     assertThat(positive.isPositive()).isEqualTo(isPositive);
   }
 
