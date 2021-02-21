@@ -19,11 +19,6 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
   private final UserService userService;
 
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  } // 빈으로 등록
-
   @Override
   public void configure(WebSecurity web) { // static 하위 파일 목록(css, js, img) 인증 무시
     web.ignoring().antMatchers("/css/**", "/js/**", "/img/**", "/h2-console/**");
@@ -50,6 +45,6 @@ public class WebSecurityConfig  extends WebSecurityConfigurerAdapter {
 
   @Override
   public void configure(AuthenticationManagerBuilder auth) throws Exception { // 필요한 정보들을 가져오는 곳
-    auth.userDetailsService(userService).passwordEncoder(passwordEncoder()); // 해당 서비스(userService)에서는 UserDetailsService를 implements해서 loadUserByUsername() 구현해야함 (서비스 참고)
+    auth.userDetailsService(userService).passwordEncoder(new BCryptPasswordEncoder()); // 해당 서비스(userService)에서는 UserDetailsService를 implements해서 loadUserByUsername() 구현해야함 (서비스 참고)
   }
 }
