@@ -1,0 +1,4 @@
+jwt:
+  issuer: ajufresh@gmail.com
+  secretKey: secretKey
+  tokenPrefix: Bearer
