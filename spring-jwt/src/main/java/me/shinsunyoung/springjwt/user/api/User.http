@@ -1,0 +1,26 @@
+### 1. 일반 접근 - 403
+GET http://localhost:8080/hello
+
+### 2. 회원가입
+POST http://localhost:8080/sign-up
+Content-Type: application/json
+
+{
+  "email": "ajufresh@gmail.com",
+  "password": "password"
+}
+
+
+### 3. 로그인
+POST http://localhost:8080/sign-in
+Content-Type: application/json
+
+{
+  "email": "ajufresh@gmail.com",
+  "password": "password"
+}
+
+
+### 4. 헤더 접근
+GET http://localhost:8080/hello
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJhanVmcmVzaEBnbWFpbC5jb20iLCJpYXQiOjE2MjIzNzkxODAsImV4cCI6MTYyMjM4MDk4MCwiaWQiOjEsImVtYWlsIjoiYWp1ZnJlc2hAZ21haWwuY29tIn0.IcVVZciv6UdnDSyAZLfUXe9iSctufLBMnO6Oy0tX-Og
