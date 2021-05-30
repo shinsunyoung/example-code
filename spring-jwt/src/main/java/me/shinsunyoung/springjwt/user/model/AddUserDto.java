@@ -1,20 +1,15 @@
 package me.shinsunyoung.springjwt.user.model;
 
-import lombok.Builder;
 import lombok.Getter;
+import lombok.Setter;
 import me.shinsunyoung.springjwt.user.domain.User;
 
+@Setter
 @Getter
 public class AddUserDto {
 
-  private final String email;
-  private final String password;
-
-  @Builder
-  public AddUserDto(String email, String password) {
-    this.email = email;
-    this.password = password;
-  }
+  private String email;
+  private String password;
 
   public User toEntity(String encodePassword) {
     return User.builder()

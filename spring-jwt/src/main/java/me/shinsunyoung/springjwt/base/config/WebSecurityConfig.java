@@ -19,7 +19,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
   private static final String[] PUBLIC_URLS = {
-      "/users/sign-up", "/users/sign-in"
+      "/sign-up", "/sign-in"
   };
 
   private final JwtTokenProvider jwtTokenProvider;
